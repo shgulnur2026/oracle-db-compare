@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Сравнение БД Oracle</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;color:#222}
+pre{background:#f2f3f5;padding:12px;border-radius:6px;overflow:auto}code{background:#f2f3f5;padding:1px 4px;border-radius:3px}</style></head>
+<body>
+<h1>Сравнение таблиц территориальных БД Oracle с республиканской</h1>
+<p>Локальное веб-приложение на Python: проверяет, что записи территориальных БД есть в республиканской и что у них заполнено поле <code>BlobArch</code>; проблемные записи выгружает в файл, таблицы ANL и дамп Data Pump.</p>
+<p>Приложению нужен доступ к вашим базам Oracle, поэтому оно запускается только на вашем компьютере. Эта страница — описание.</p>
+<h2>Запуск</h2>
+<pre>pip install -r requirements.txt
+python app.py</pre>
+<p>Откройте <code>http://127.0.0.1:8765</code>.</p>
+<h2>Возможности</h2>
+<ul>
+<li>Этап 1: сравнение по ключам <code>ID</code>+<code>KNR</code>, порциями по 500, результат в <code>compare_result_&lt;район&gt;.txt</code>.</li>
+<li>Этап 2: таблицы <code>&lt;ТАБЛИЦА&gt;ANL</code> и экспорт через <code>DBMS_DATAPUMP</code>.</li>
+<li>Режим «множество БД» из Excel/CSV, параллельная обработка до 32 потоков, файл сводки.</li>
+<li>Пароли не сохраняются и не пишутся в лог.</li>
+</ul>
+</body></html>
